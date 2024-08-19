@@ -7,6 +7,22 @@ IDEA安装Cursive的插件
 
 https://www.yuque.com/leryn/wiki/toolchain.metabase
 
+helm add repo infra harbor.mydomain.com/infra/chartrepo
+helm pull infra/metabase
+
+helm install metabase stable/metabase -n metabase \
+--set database.dbname=metabase \
+--set database.host=xxx.xxx.xxx.xxx \
+--set database.password=xxxxxxxxx \
+--set database.port=3306 \
+--set database.type=mysql \
+--set database.username=metabase \
+--set image.repository=harbor.mydomain.com/infra/metabase \
+--set image.tag=v0.44.5 \
+--set ingress.enabled=true \
+--set ingress.hosts={metabase.mydomain.com} \
+--set timeZone=Asia/Shanghai
+
 ## 目录概述
 Metabase是一个开源的业务智能工具，用于帮助用户可视化和理解数据。根据你提供的目录结构，下面是每个目录可能的作用：
 
